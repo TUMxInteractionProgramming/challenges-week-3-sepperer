@@ -24,13 +24,61 @@ button, strong {
 
 
 
+/* LAYOUT */
+
+#channels {
+    /* #5 #left align the channels area*/
+    position: absolute;
+    height: 100%;
+    width: 40%;
+    background-color: red; 
+}
+
+#chat {
+    /* #5 #right align chat area */
+    position: absolute;
+    height: 100%;
+    width: 60%;
+    right: 0%;
+}
+
+#messages {
+    /* #5 messages enable scrolling */
+    position: absolute;
+    width: 100%;
+    top: 64px;
+    bottom: 72px;
+    overflow: auto;
+}
+
+
+
 /* APP BAR */
 
 /* #4 #sweat address both #app-bar s */
 h1 {
     background-color: #3F51B5;
     color: white;
+    /* #5 general styles */
+    height: 64px;
+    font-size: 20px;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 24px 16px 20px 16px;
+    /* #5 icon position */
+    position: relative;
 }
+
+h1#left-app-bar {
+    padding-left: 72px;
+}
+
+h1#left-app-bar img {
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+}
+
 
 
 /* CHANNELS LIST */
@@ -41,6 +89,13 @@ ul {
     background-color: white;
     /* #3 #channels #bullets removed */
     list-style-type: none;
+
+    /* #5 position channel list */
+    position: absolute;
+    width: 100%;
+    top: 64px;
+    bottom: 72px;
+    overflow: auto;
 }
 
 li {
@@ -51,6 +106,15 @@ li {
     font-size: 16px;
     /* #4 #channel tiles are separated by #lines */
     border-bottom: 1px solid #F5F5F5;
+    /* #5 #channels position */
+    position: relative;
+}
+
+li .channel-meta {
+    /* #5 position icons */
+    position: absolute;
+    right: 16px;
+    top: 12px;
 }
 
 /* #4 active #channel is #highlighted */
@@ -64,18 +128,27 @@ li img {
     vertical-align: middle;
 }
 
+
+
 /* TAB BAR */
 
 /* #4 #sweat #tab-bar */
-#tab-bar {
+/* #5 smileys */
+#tab-bar, #chat-bar {
     /* #3 #tab-bar #container should be white */
     background-color: white;
     /* #3 #tab-bar #container has all buttons centered */
     text-align: center;
+    /* #5 bottom-align and flexify */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
 }
 
 /* #4 add styles to #tab-bar #buttons */
-#tab-bar button {
+/* #5 smileys */
+#tab-bar button, #chat-bar button {
     background-color: white;
     border: none;
     font-size: 13px;
@@ -84,6 +157,9 @@ li img {
     width: 33%;
     height: 72px;
     padding: 16px;
+
+    /* #5 flexify */
+    flex-grow: 1;
 }
 
 /* #4 #tab-bar buttons do have a #line-break and images are centered due to the left&right auto margin */
@@ -99,32 +175,75 @@ li img {
 }
 
 
+
+/* #5 CHAT BAR */
+
+#chat-bar button {
+    /* #5 override the tab bar’s button styling */
+    width: auto;
+    flex-grow: 0;
+}
+
+#emojis {
+    /* #5 style for the emoji box */
+    background-color:white;
+    border: 1px solid black;
+
+    position: absolute;
+    box-sizing: border-box;
+    height: 300px;
+    width: 300px;
+    left: 16px;
+    top: -284px;
+    padding: 16px;
+
+    text-align: left;
+    font-size: 28px;
+
+    overflow: auto;
+}
+
+
+
 /* MESSAGES */
 /* #4 select #specific #messages by class and re-assign element styles according to their #hierarchy in a nested way */
 .message {
     /* #3 #chat #width*/
     width: 80%;
-
     /* #4 align all #messages using #margins */
     margin-left: 2.5%;
-
     /* #4 #message distance to next message container*/
     margin-bottom: 8px;
+
+     /* #5 reposition messages */
+     position: relative;
 }
 
 
 .message h3 {
     font-size: medium;
+
+     /* #5 distribute the meta-data’s contents */
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-end;
 }
 
 .message h3 em {
     font-size: larger;
     font-style: normal;
+
+     /* #5 dates appear in one column */
+     width: 20%;
+     text-align: right;
 }
 
 .message h3 a {
     /* #3 #chat #link color is primary text */
     color: black;
+
+     /* #5 dates appear in one column */
+     width: 30%;
 }
 
 .message p {
@@ -136,10 +255,14 @@ li img {
     background-color: #CDDC39;
     color: black;
     text-transform: uppercase;
+
+     /* #5 reposition button */
+     position: absolute;
+     right: 8px;
+     bottom: 8px;
 }
 
 /* #4 left align own #messages using #margins */
 .message.own {
     margin-left: 17.5%;
 }
-
