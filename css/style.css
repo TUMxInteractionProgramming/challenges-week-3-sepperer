@@ -79,6 +79,15 @@ h1#left-app-bar img {
     bottom: 0;
 }
 
+h1 a {
+    color: white;
+}
+
+h1 #channel-star {
+    position:absolute;
+    right: 16px;
+}
+
 
 
 /* CHANNELS LIST */
@@ -201,6 +210,9 @@ li img {
     font-size: 28px;
 
     overflow: auto;
+
+    /* #6 hide smileys */
+    display: none;
 }
 
 
